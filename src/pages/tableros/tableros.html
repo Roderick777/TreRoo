@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Tableros</ion-title>
+  </ion-navbar>
+  <ion-navbar>
+    Tableros personales
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <ion-card *ngFor="let tablero of tableros" (click)="abrirTablero(tablero)" class="fondo_3">
+      <ion-card-header class="color_texto_blanco">
+          {{ tablero.titulo_tablero }}
+      </ion-card-header>
+    </ion-card>
+      
+
+    <ion-fab bottom right>
+    <button ion-fab color="secondary" (click)="crearTablero()">
+          <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    </button>
+    </ion-fab>
+
+</ion-content>

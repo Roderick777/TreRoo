@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ListasTableroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+   <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ tituloTablero }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="creandoLista" (click)="guardarLista()">
+            <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button round outline (click)="nuevaLista()" >Añadir lista</button>
+  
+   <ion-item *ngIf="creandoLista">
+    <ion-label color="primary" floating>Floating Label</ion-label>
+    <ion-input [(ngModel)]="nombreNuevaLista"></ion-input>
+  </ion-item>
+
+  <ion-card *ngFor="let lista of listas" (click)="abrirLista(lista)" class="fondo_9">
+    <ion-card-header class="color_texto_blanco">
+      {{ lista.titulo_lista }}
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>
